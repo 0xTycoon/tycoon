@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="img/punk4513-light-blue.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CryptoPunks 5th bday</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/toastr.min.css">
+    <style>
+        .navbar {
+
+            background-color: #2e2e2e !important;
+        }
+
+        .jumbotron {
+            margin-top:2em!important;
+            margin-bottom:2em!important;
+        }
+
+        body {
+            padding-top: 110px;
+            padding-bottom: 3em;
+            background: black;
+            /* background: rgb(234, 234, 235);
+             background: linear-gradient(90deg, rgb(74 80 86) 0%, rgb(186 186 186) 97%);
+
+             */
+
+         }
+        #main-container {
+            background: rgb(46 46 46);
+           /* background: linear-gradient(90deg, rgb(74 80 86) 0%, rgb(186 186 186) 97%);*/
+        }
+
+         .modal-content {
+             background-color: black;;
+         }
+
+         #presenting {
+/*
+             background: linear-gradient(90deg, rgb(17 17 17) 0%, rgb(69 70 70) 97%);
+*/
+             /*
+             background-image: linear-gradient(to right, #202020, #2b2b2b, #363636, #424242, #4e4e4e, #505050, #525252, #545454, #4c4c4c, #434343, #3b3b3b, #333333);
+
+              */
+
+             color: #e6e6e6;
+             border-radius: 6px;
+
+
+
+         }
+
+         #presenting h3 {
+             line-height: 1.3em;
+         }
+
+         #sub-title {
+             color: darkgrey;
+         }
+
+         #about {
+             margin-top: 0.3em;
+         }
+
+         #dapp, #minting-finished {
+             padding: 1em;
+             margin-top: 3.5em!important;
+             box-shadow: 1px 1px 15px 5px #393939;
+             border: 1px solid #4b4b4b;
+            /* border-radius: 25px; */
+             background: #454646;
+             color:whitesmoke;
+             /*
+             background: rgb(255, 214, 214);
+             /* background: radial-gradient(circle, rgb(231, 255, 217) 0%, rgb(245, 245, 245) 100%);
+            background: radial-gradient(circle at 10%, rgb(231, 255, 217), rgb(245, 245, 245));*/
+            /*
+                        animation-duration: 3s;
+                        animation-name: slide-grad;
+                        animation-iteration-count: infinite;
+
+             */
+
+        }
+
+        /*
+                @keyframes slide-grad {
+                    from {
+                        background: radial-gradient(circle at 10%, rgba(231, 255, 217), rgb(245, 245, 245));;
+                    }
+
+                    to {
+                        background: radial-gradient(circle at 90%, rgb(231, 255, 217), rgb(245, 245, 245));;
+                    }
+                }
+        */
+
+
+
+        #dapp-not-connected, #dapp-wrong-network {
+            background-color: #0d6efd;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 1.3em;
+        }
+
+        #claim-btn {
+            min-width: 14em;
+        }
+
+
+
+        #gallery {
+            padding: 1em;
+            margin-top: 5.5em!important;
+            margin-bottom: 5.5em!important;
+            box-shadow: 1px 1px 15px 5px #8c8d8d;
+            border: 1px solid #bebebe;
+            border-radius: 25px;
+
+        }
+
+        .steel-gradient {
+            /*
+            background-image: linear-gradient(to right, #202020, #2b2b2b, #363636, #424242, #4e4e4e, #505050, #525252, #545454, #4c4c4c, #434343, #3b3b3b, #333333);
+
+             */
+
+        }
+
+        .blue-gradient {
+            background: rgb(255, 214, 214);
+            background: radial-gradient(circle, rgb(172 172 172) 0%, rgb(199 220 255) 100%);
+        }
+
+        .tile {
+            width: 100%;
+            min-width: 50px;
+        }
+
+        .main-title {
+            background: black;
+            color: whitesmoke;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .main-title img {
+            max-width: 350px;
+            width: 80%;
+        }
+
+        .contract {
+            font-weight: bold;
+            font-size: smaller;
+        }
+
+        footer {
+            background-color: black;
+            color: whitesmoke;
+            margin-bottom: -10em;
+        }
+
+        a {
+            color: #82baff;
+        }
+
+        footer a {
+            color: whitesmoke;
+        }
+
+        #dead-balance {
+            font-weight: bold;
+        }
+
+        #upgrade {
+            background: #483561;
+            border-top-left-radius: 1em;
+        }
+        #nft-total-minted {
+            background-color: #483561!important;
+            font-size: 1.1rem;
+        }
+
+
+
+
+        .form-text {
+            color: #cacaca;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top bg-dark">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <img src="img/punk4513-light-blue.png" alt="" width="48" height="48" class="me-2"> tycoon.eth 's
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0  justify-content-end">
+                    <li>
+                        <a class="nav-link" href="#" id="about">
+
+                        </a>
+                    </li>
+
+                </ul>
+                <form class="d-flex">
+
+                    <button class="btn btn-primary" id="connect">Connect Wallet</button>
+                </form>
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+<main>
+    <div class="container-fluid main-title">
+
+        <div class="d-flex justify-content-center align-items-center p-5">
+            <div class="container text-center">
+                <h1 class="m-4 display-2">CryptoPunks 5th Birthday - a gift from tycoon.eth</h1>
+                <div>
+                    <a href="https://opensea.io/collection/thedao-sec-report-nft" target="_blank"><img src="img/0/65.png"></a>
+                </div>
+                <h3 class="m-3">Only limited to the first 500 claimers.</h3>
+                <h3 class="m-3">What is it? It's a fun little project created by tycoon.eth at the end of 2021.
+                       </h3>
+                <h3 class="m-3">See the <a href="https://thedaonft.eth.limo/">project page</a> for more details</h3>
+                <h3 class="m-3"><em>Includes a vintage (2016) DAO token inside</em></h3>
+                <h5>One of the earliest examples of ERC20 tokens, wrapped inside an NFT, that can be unwrapped by burning the NFT.</h5>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="container-fluid" id="main-container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+
+
+
+                <div id="dapp-not-connected" class="alert-primary">
+                    <h4>Please connect your wallet to continue 👆</h4>
+                </div>
+                <div id="dapp-wrong-network" class="alert-primary d-none">
+                    <h4>Oops! Wrong Network. Please switch to the Ethereum Mainnet 👆</h4>
+                </div>
+
+                <div class="jumbotron d-none" id="minting-finished">
+                    <h1 class="display-4">Inventory depleted</h1>
+                    <p class="lead">
+                        All 500 pieces have now been claimed! (if you have multiple addresses and received multiple pieces, consider giving a spare to someone who missed out <3 )
+                    </p>
+                </div>
+                <div class="jumbotron d-none steel-gradient" id="dapp">
+
+                    <h1 class="display-4">Collect your gift</h1>
+                    <div class="lead">
+                        <p>There are still <span id="pieces-available">x</span> pieces available.</p>
+
+
+                    </div>
+
+
+                    <p class="d-none" id="has-balance">You have received <b id="nft-balance">x</b> NFTs so far</p>
+                    <form id="mint-form">
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="claimAddress" class="form-label">Claiming Address</label>
+                                    <input name="address" value="" type="text" class="form-control" id="claimAddress"
+                                           aria-describedby="amountHelp">
+                                    <div id="amountHelp" class="form-text">Address where you had at least 1 punk on 10th of June 2022. The gift will be sent to that address.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col d-flex justify-content-center">
+
+
+
+                                <button type="submit" class="btn btn-success btn-lg " id="claim-btn">Claim</button>
+
+
+                            </div>
+                        </div>
+
+                    </form>
+                    <div class="container-fluid mt-3">
+                        <h5>
+                            Verified Contract addresses: <a class="contract" target="_blank"
+                                                            href="https://etherscan.io/address/0xcbf6a660d28416a9d7b89bb67d20b0776dfd6ec2#code">TheGift</a>
+                        </h5>
+                        <p>This contract does not read/write into the CryptoPunks contract.
+                            It does not require any approvals or permissions.
+                            All distribution is done using a Merkle tree from a snapshot on 10th of June 2022.
+                        </p>
+                        <p>
+                            Simply claim with the address where you had a punk on 10th of June 2022.
+                            (Your punk does not have to be in the wallet while you claim, it only had
+                            to be there in the 10th of June).
+                        <p>
+                        <p>The NFT will be sent to the address for which you had a punk on the 10th of June.
+                            You do not have to connect with this address, you can connect with a different address if you like.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="jumbotron blue-gradient d-none" id="admin">
+                    <h3>admin</h3>
+
+                    <div>
+                        <form>
+                            <input type="text" id="treeRoot" value="">
+                            <input type="button" id="setRoot" value="Set root">
+                        </form>
+
+                    </div>
+                    <hr>
+                    <div>
+                        <form>
+                            <input class="form-control" type="button" id="mintBulk" value="Mint">
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="jumbotron blue-gradient" id="gallery">
+                    <h1 class="display-4">Sample of some the pieces</h1>
+
+                    <div class="container overflow-hidden">
+
+                        <div class="row align-items-center gy-3">
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/0" target="_blank"><img class="tile" src="img/0/0.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/1" target="_blank"><img class="tile" src="img/0/1.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/2" target="_blank"><img class="tile" src="img/0/2.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/3" target="_blank"><img class="tile" src="img/0/3.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/4" target="_blank"><img class="tile" src="img/0/4.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/5" target="_blank"><img class="tile" src="img/0/5.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/6" target="_blank"><img class="tile" src="img/0/6.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/7" target="_blank"><img class="tile" src="img/0/7.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/8" target="_blank"><img class="tile" src="img/0/8.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/9" target="_blank"><img class="tile" src="img/0/9.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/10" target="_blank"><img class="tile" src="img/0/10.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/11" target="_blank"><img class="tile" src="img/0/11.png"></a></div>
+
+                        </div>
+                        <div class="row align-items-center gy-3">
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/12" target="_blank"><img class="tile" src="img/0/12.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/13" target="_blank"><img class="tile" src="img/0/13.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/14" target="_blank"><img class="tile" src="img/0/14.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/15" target="_blank"><img class="tile" src="img/0/15.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/16" target="_blank"><img class="tile" src="img/0/16.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/17" target="_blank"><img class="tile" src="img/0/17.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/18" target="_blank"><img class="tile" src="img/0/18.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/19" target="_blank"><img class="tile" src="img/0/19.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/20" target="_blank"><img class="tile" src="img/0/20.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/21" target="_blank"><img class="tile" src="img/0/21.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/22" target="_blank"><img class="tile" src="img/0/22.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/23" target="_blank"><img class="tile" src="img/0/23.png"></a></div>
+                        </div>
+
+                        <div class="row align-items-center gy-3">
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/24" target="_blank"><img class="tile" src="img/0/24.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/25" target="_blank"><img class="tile" src="img/0/25.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/26" target="_blank"><img class="tile" src="img/0/26.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/27" target="_blank"><img class="tile" src="img/0/27.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/28" target="_blank"><img class="tile" src="img/0/28.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/29" target="_blank"><img class="tile" src="img/0/29.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/30" target="_blank"><img class="tile" src="img/0/30.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/31" target="_blank"><img class="tile" src="img/0/31.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/32" target="_blank"><img class="tile" src="img/0/32.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/33" target="_blank"><img class="tile" src="img/0/33.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/34" target="_blank"><img class="tile" src="img/0/34.png"></a></div>
+                            <div class="col col-md-2 col-lg-1 p-3"><a href="https://opensea.io/assets/0x79a7d3559d73ea032120a69e59223d4375deb595/35" target="_blank"><img class="tile" src="img/0/35.png"></a></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+</main>
+<footer class="bg-dark text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        A tycoon.eth project
+    </div>
+    <!-- Copyright -->
+</footer>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="js/web3.min.js"></script>
+<script src="js/js-big-decimal.min.js"></script>
+<script src="js/web3modal.js"></script>
+<script src="js/toastr.min.js"></script>
+<script src="js/walletconnect/web3-provider.min.js"></script>
+<script src="snapshot.js"></script>
+<script src="js/merkletree.js"></script>
+<script src="js/keccak256.js"></script>
+<script>
+
+    const deadAddress = "0x000000000000000000000000000000000074eda0";
+
+    const TheGiftNFTAddress = "0xcBf6A660D28416a9D7B89bB67D20b0776Dfd6EC2"; //test "0xb3895280f69fc50a1fdf51099a4e577b867b63df";
+
+    const TheGiftNFTABI = [{"inputs":[{"internalType":"address","name":"_theDAO","type":"address"},{"internalType":"address","name":"_theNFT","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"","type":"address"}],"name":"Claim","type":"event"},{"inputs":[{"internalType":"uint256","name":"rounds","type":"uint256"}],"name":"bulkMint","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_to","type":"address"},{"internalType":"bytes32[]","name":"_proof","type":"bytes32[]"}],"name":"claim","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"claims","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"curBatch","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"curator","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"},{"internalType":"bytes32[]","name":"_proof","type":"bytes32[]"}],"name":"getStats","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"nextBatch","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"root","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_a","type":"address"}],"name":"setCurator","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes32","name":"_r","type":"bytes32"}],"name":"setRoot","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_ids","type":"uint256[]"},{"internalType":"bool","name":"_destruct","type":"bool"}],"name":"shutdown","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_to","type":"address"},{"internalType":"bytes32","name":"_root","type":"bytes32"},{"internalType":"bytes32[]","name":"_proof","type":"bytes32[]"}],"name":"verify","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"pure","type":"function"}];
+
+
+
+    let tree;
+    let leavesIndex = {};
+    let root = '';
+
+
+
+    let web3 = new Web3;
+    let NFT;
+    let TheGift;
+    let provider;
+    let Web3Modal;
+    let w3m; // instance of Web3Modal
+    let feth = function (v) { // stub function
+        return "NaN"
+    }; // format ETH (WEI to ETH)
+    let peth = function (v) { // stub function
+        return web3.utils.toBN("0");
+    }; // parse ETH (ETH to WEI) return as BigNumber
+    let toBN = function (str) { // stub function
+        return new web3.utils.toBN(str);
+    }; // convert to BigNumber
+    let toDAO = function (wei) {
+        return web3.utils.toBN((wei)).mul(web3.utils.toBN(100))
+    }
+
+    let state = {
+        isConnected: false,
+        isPreview: true,
+        selectedAccount: "",
+        httpProviderInterval: null,
+        web3BlockSub: null, // subscription to block updates
+        balanceETH: toBN("0"),
+        networkID : null,
+        claimingAddress : null,
+        stats: {
+            nftBalance : 0,
+            nftInventory: 0,
+            proof: 0,
+            curbatch: 0,
+            nextBatch: 0,
+            progress: 0
+        },
+        bloom: ""
+    };
+
+
+
+    async function init() {
+        web3 = new Web3(provider);
+        TheGift = new web3.eth.Contract(TheGiftNFTABI, TheGiftNFTAddress); // TheGift Contract
+        feth = function (wei) { // format ETH utility
+            let ret = Web3.utils.fromWei(wei, 'ether');
+            return ret;
+        }
+        peth = function (eth) {
+            return web3.utils.toBN(Web3.utils.toWei(eth, 'ether'));
+        }
+        toBN = function (str) {
+            return web3.utils.toBN(str);
+        }
+
+        try {
+            let id = await ethereum.request({ method: 'eth_chainId' });
+            state.networkID = web3.utils.hexToNumber(id);
+        } catch(e) {
+            console.log(e);
+        }
+
+        buildTree();
+
+        console.log("tree root: "+root);
+
+        let block = await web3.eth.getBlock("latest");
+        await updateState(block);
+        unsubscribeEvents();
+        if (state.web3BlockSub == null) {
+            await subscribeEvents();
+        }
+
+        async function subscribeEvents() {
+            state.web3BlockSub = await web3.eth.subscribe('newBlockHeaders', async function (error, result) {
+                if (error) {
+                    if (state.httpProviderInterval === null) {
+                        state.httpProviderInterval = setInterval(async function() {
+                            state.block = await web3.eth.getBlock("latest")  ;
+                            console.log("got new block via http: " + state.block);
+                            await updateState(state.block);
+                            render();
+                        }, 12000); // update every 12sec
+                    }
+                    return null;
+                }
+                console.log("got new block: " + result.number);
+                await updateState(result);
+                try {
+                    render();
+                } catch (e) {
+                }
+            });
+
+            if (typeof provider.on === 'function') {
+
+
+                provider.on("disconnect", async (error) => {
+                    console.log(error);
+                    console.log("disconnected, provider is" + provider.isConnected);
+                    provider.disconnect();
+                    unsubscribeEvents();
+                    provider = null;
+                    state.isConnected = false;
+                    w3m.clearCachedProvider();
+                    try {
+                        render();
+                    } catch (e) {
+                    }
+                });
+
+                // reload on account change
+                provider.on("accountsChanged", async (accounts) => {
+                    console.log(accounts);
+                    console.log("account changed");
+                    location.reload();
+                    try {
+                        await updateState();
+                    } catch (e) {
+                    }
+                    render();
+                });
+
+                // reload on chain change
+                provider.on("chainChanged", async (accounts) => {
+                    console.log(accounts);
+                    console.log("chain changed");
+                    location.reload();
+                });
+
+                provider.on("connect", async (info) => {
+                    console.log("connected!")
+                    console.log(info);
+                    await updateState();
+                    try {
+                        render();
+                    } catch (e) {
+                    }
+                });
+            }
+
+        }
+
+        async function unsubscribeEvents() {
+            if (state.web3BlockSub != null) {
+                await state.web3BlockSub.unsubscribe(function (error, success) {
+                    if (success) {
+                        console.log('web3BlockSub Successfully unsubscribed!');
+                        state.web3BlockSub = null;
+                    }
+                });
+            }
+            if (state.httpProviderInterval > 0) {
+                clearInterval(state.httpProviderInterval);
+                state.httpProviderInterval = null;
+            }
+        }
+
+        render();
+
+    }
+
+    async function updateState(blockHeader) {
+
+        let accounts = await web3.eth.getAccounts();
+        if (accounts.length === 0) {
+            accounts[0] = deadAddress;
+        }
+        state.selectedAccount = accounts[0].toLowerCase();
+        web3.eth.defaultAccount = state.selectedAccount;
+        console.log("selected account" + state.selectedAccount);
+
+        if ((state.claimingAddress === null) &&
+            ( leavesIndex.hasOwnProperty(state.selectedAccount))
+        ) {
+            state.claimingAddress = state.selectedAccount;
+        }
+
+
+
+        if (blockHeader) {
+            state.bloom = blockHeader.logsBloom;
+            let proof;
+            let addy;
+            try {
+
+                if (state.claimingAddress === null || !leavesIndex.hasOwnProperty(leavesIndex[state.claimingAddress])) {
+                    // cannot get a proof, not on the list
+                    proof = [];
+                    addy = deadAddress
+                } else {
+                    proof = tree.getHexProof(leavesIndex[state.claimingAddress.toLowerCase()]);
+                    addy = state.claimingAddress.toLowerCase();
+                }
+
+                let result = await TheGift.methods.getStats(addy, proof).call();
+                console.log(result);
+
+                state.stats.nftBalance = parseInt(result[0]);
+                state.stats.nftInventory = parseInt(result[1]);
+                state.stats.proof = parseInt(result[2]);
+                state.stats.curbatch = parseInt(result[3]);
+                state.stats.nextBatch = parseInt(result[4]);
+                state.stats.progress = parseInt(result[5]);
+
+            } catch (e) {
+                console.log(e);
+                // display the error
+            }
+        }
+
+    }
+
+    function render() {
+        let button = $("#connect");
+        let isMinting;
+        if ((!state.isConnected) && (state.selectedAccount.length === 0) || state.selectedAccount === deadAddress) {
+            button.text("Connect Wallet");
+            button.addClass("btn-primary");
+            button.removeClass("btn-secondary");
+            $("#dapp-not-connected").show();
+            $("#dapp").hide();
+            $("#upgrade-form").hide();
+            $("#dapp").addClass("d-none");
+            return;
+        } else {
+            let ac = state.selectedAccount
+            let shortAc = ac.substring(0, 4) + '...' + ac.substring(ac.length - 4) + " connected";
+            button.text(shortAc)
+            button.removeClass("btn-primary");
+            button.addClass("btn-secondary");
+            $("#dapp").removeClass("d-none");
+
+            $("#dapp-not-connected").hide();
+            if ((state.networkID !== 1) && (state.networkID !== 31337)) {
+                $("#dapp").addClass("d-none");
+                $("#dapp-wrong-network").show();
+                $("#dapp-wrong-network").removeClass("d-none");
+                return;
+            }
+
+
+        }
+
+        let addy = $("#claimAddress").val().trim().toLowerCase();
+        if ((addy === "") && (addy !== deadAddress) && state.claimingAddress !== null) {
+            $("#claimAddress").val(state.claimingAddress);
+        }
+
+        $("#dapp").show();
+
+        if ($("#treeRoot").val().trim() === ""){
+            $("#treeRoot").val(root);
+        }
+
+        if (state.selectedAccount === '0xc43473fa66237e9af3b2d886ee1205b81b14b2c8') {
+            $("#admin").removeClass("d-none");
+        } else {
+            $("#admin").addClass("d-none");
+        }
+
+        $('#pieces-available').text(state.stats.nftInventory);
+
+
+
+
+        if (state.isPreview) {
+
+
+        } else if (state.isConnected) {
+
+
+        }
+
+
+    }
+
+    $(async function () {
+        console.log("ready!");
+
+        Web3Modal = window.Web3Modal.default;
+        const WalletConnectProvider = window.WalletConnectProvider.default;
+        const providerOptions = {
+            /* See Provider Options Section */
+            // infuraId: "",
+
+            walletconnect: {
+                package: WalletConnectProvider, // required
+                options: {
+                    infuraId: "35247c5aca8a416bb22a01e56ab022dc" // required
+                }
+            }
+
+        };
+        state.networkID===1
+        w3m = new Web3Modal({
+            network: "mainnet", // optional
+            cacheProvider: true, // optional
+            providerOptions // required
+        });
+        if (w3m.cachedProvider) {
+            try {
+                provider = await w3m.connect();
+                state.isConnected = true;
+                state.isPreview = false;
+                await init();
+            } catch (e) {
+                console.log("error using cached provider", e);
+                w3m.clearCachedProvider();
+                toastr.error(e.message, 'Error connecting to your wallet');
+            }
+        } else {
+            provider = new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/35247c5aca8a416bb22a01e56ab022dc");
+            try {
+                state.isConnected = false;
+                state.isPreview = true;
+                await init();
+            }  catch (e) {
+                state.isConnected = false;
+                state.isPreview = false;
+                toastr.error(e.message, 'Error connecting to your wallet');
+                console.log(e);
+
+            }
+        }
+
+        $("#connect").click(async function (e) {
+            e.preventDefault();
+            if (state.isConnected === true) {
+                return;
+            }
+            try {
+                provider = await w3m.connect();
+                state.isConnected = true;
+                await init();
+                render();
+
+            } catch (e) {
+                console.log("Could not get a wallet connection", e);
+                state.connectError = e
+                console.log("connect err " + e.message);
+
+            }
+        });
+
+        let claimBtn = $("#claim-btn");
+        claimBtn.on('click', async function (e) {
+            e.preventDefault();
+
+            let claimAddress = $("#claimAddress").val().toLowerCase().trim();
+            if (claimAddress === "") {
+                toastr.error('could not claim', 'Please enter a valid address');
+                return;
+            }
+            if (!web3.utils.isAddress(claimAddress)) {
+                toastr.error('could not claim', 'Please enter a valid 0x address');
+                return;
+            }
+            if (!leavesIndex.hasOwnProperty(claimAddress)) {
+                toastr.error('could not claim', 'Address is not on the list');
+                return;
+            }
+
+            // todo: check if claimed before?
+
+            let proof = tree.getHexProof(leavesIndex[claimAddress]);
+
+            TheGift.methods.claim(claimAddress, proof).send(
+                {
+                    from: state.selectedAccount,
+                    value: 0
+                }
+            ).then(function (txReceipt) {
+                if (txReceipt.status) {
+                    toastr.error('Claim done', 'You did it!');
+
+                } else {
+                    toastr.error('could not set', 'Transaction failed');
+                }
+
+            });
+
+        });
+
+
+        let mintBulkBtn = $("#mintBulk");
+        mintBulkBtn.on('click', async function (e) {
+            e.preventDefault();
+
+
+            TheGift.methods.bulkMint(1).send(
+                {
+                    from: state.selectedAccount,
+                    value: 0
+                }
+            ).then(function (txReceipt) {
+                if (txReceipt.status) {
+                    if ("Mint" in txReceipt.events) {
+                        toastr.success('Mint successful<br>' +
+                            'TX: ' + txReceipt.transactionHash, ' hooray');
+                    } else {
+                        toastr.error('could not mint', 'Mint event not fired');
+                    }
+
+                } else {
+                    toastr.error('could not set', 'Transaction failed');
+                }
+
+            });
+
+        });
+
+        let setRootBtn = $("#setRoot");
+        setRootBtn.on('click', async function (e) {
+            e.preventDefault();
+
+            let r = $("#treeRoot").val().trim();
+            if (r === "") {
+                toastr.error('The tree root was blank', 'Root blank');
+                return;
+            }
+
+            TheGift.methods.setRoot(r).send(
+                {
+                    from: state.selectedAccount,
+                    value: 0
+                }
+            ).then(function (txReceipt) {
+                if (txReceipt.status) {
+                    if ("Mint" in txReceipt.events) {
+                        toastr.success('Mint successful<br>' +
+                            'TX: ' + txReceipt.transactionHash, ' hooray');
+                    } else {
+                        toastr.error('could not mint', 'Mint event not fired');
+                    }
+
+                } else {
+                    toastr.error('could not set', 'Transaction failed');
+                }
+
+            });
+
+        });
+
+
+
+        $(document).mousemove(function (event) {
+            let windowWidth = $(window).width();
+            let windowHeight = $(window).height();
+
+            let mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
+            let mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
+//
+            //$('#dapp').css('background', 'radial-gradient(circle at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, rgb(233 235 233), rgb(239 255 244))');
+        });
+
+
+    });
+
+    function buildTree() {
+
+        getLeaves = function() {
+            let ret = [];
+            for (let i = 0; i < snapshot.length; i++) {
+                n = web3.eth.abi.encodeParameters(['uint160'], [snapshot[i]]);
+                n = "0x"+n.substring(26, n.length); // pack by chopping off leading 0
+               // console.log("xxxxx n:"+n + " a:"+(snapshot[i]+""))
+
+                n = keccak256(n);
+                ret.push(n);
+                leavesIndex[snapshot[i]] = n;
+            }
+            return ret;
+        }
+        let leaves = getLeaves();
+        tree = new MerkleTree(leaves, keccak256, { sort: true });
+        root = tree.getHexRoot();
+
+        console.log("proof:" + tree.getHexProof(leaves[0]));
+        //const leaf = keccak256('a');
+    }
+
+</script>
+</body>
