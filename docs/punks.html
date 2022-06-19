@@ -406,7 +406,7 @@
 <footer class="bg-dark text-center text-lg-start">
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        A tycoon.eth project
+        A tycoon.eth project. <a href="https://github.com/0xTycoon/tycoon">Find the source code on Github</a>
     </div>
     <!-- Copyright -->
 </footer>
@@ -800,6 +800,12 @@
             }
 
             // todo: check if claimed before?
+
+            let c = await TheGift.methods.claims(state.selectedAccount).call();
+            if (c !== '0') {
+                toastr.error('could not claim', 'Address already claimed');
+                return;
+            }
 
             let proof = tree.getHexProof(leavesIndex[claimAddress]);
 
